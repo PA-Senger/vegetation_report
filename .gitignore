@@ -1,0 +1,19 @@
+// ignore all latex compilation files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.pdf
+*.fdb_latexmk
+*.fls
+*.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex(busy)
+*.synctex
+*.synctex.gz(busy)
+*.synctex.gz
+
