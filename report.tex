@@ -123,7 +123,7 @@ Vincent CHABANNES\par
 
 This project is part of a group of projects conducted within the \texttt{Exa-MA Project}
 \cite{exaMA} which is a part of the \texttt{Numpex} project research\cite{numpex}. 
-This is the projects my colleagues and I worked on:
+Those are the different projects my colleagues and I worked on:
 \begin{itemize}
     \item \texttt{Exa-MA WP1 - Vegetation}
     \item \texttt{Exa-MA WP1 - Terrain}
@@ -139,7 +139,7 @@ current and future HPC and AI infrastructures to deliver highly-scalable
 solutions that can effectively utilize pre-exascale systems."\cite{hidalgo2-about}
 
 Specifically focusing on the \texttt{Urban Building Model}\cite{hidalgo2-ubm}
-Use Case (UBM) which is "developping the Urban Building pilot application to
+Use Case (UBM) which is "developing the Urban Building pilot application to
 improve building energy efficiency and indoor air quality"\cite{hidalgo2-ubm},
 this particular project aims to integrate vegetation, particularly trees, into 3D models
 of urban environments.
@@ -377,8 +377,10 @@ be useful for scaling and when considering different leaf densities.
 
 \subsubsection{LOD 0}
 For the lowest level of detail, we will use simple models manually made with 
-\texttt{Gmsh}\cite{gmsh}. In the following images, we can see the trunk and the
-foliage of the tree (with the trunk separated from the foliage):
+\texttt{Gmsh}\cite{gmsh} and store them in \texttt{data/vegetation/tree\_ref} 
+(the \texttt{Gmsh} source code is available in \texttt{data/vegetation/tree\_ref/tree\_ref\_geo}). 
+In the following images, we can see the trunk and foliage of the tree, with the 
+trunk separated from the foliage:
 
 \begin{figure}[H]
     \centering
@@ -413,7 +415,7 @@ foliage of the tree (with the trunk separated from the foliage):
 \end{figure}
 
 \subsubsection{LOD 1, 2, 3}
-For the other LODs we will retrieve reference trees meshes from the
+As for the other LODs, we will retrieve reference trees meshes from the
 \texttt{Sketch up 3D Warehouse}\cite{sketchup} as shown in the next image:
 \begin{figure}[H]
     \centering
@@ -423,8 +425,11 @@ For the other LODs we will retrieve reference trees meshes from the
         \caption{Mesh of a Ginkgo tree on Sketchup 3D Warehouse}
 \end{figure}
 
-We will then use \texttt{Meshlab}\cite{meshlab} to remove the trunk and branches as
-much as possible, here are the results:
+We will then preprocess these models using \texttt{Meshlab}\cite{meshlab}, removing 
+the trunk and branches as much as possible. Additionally, we will normalize them
+ to fit within a unit bounding box and translate them to the origin. These cleaned
+  models will be stored in the \texttt{data/vegetation/tree\_ref/tree\_ref\_sketchup} directory.
+ The results are as follows:
 
 \begin{figure}[H]
     \centering
@@ -448,14 +453,15 @@ much as possible, here are the results:
     \end{minipage}
 \end{figure}
 
-Using the CGAL 3D Alpha Wrapping algorithm (explained in \autoref{sec:alpha_wrapping}), we will generate reference tree
+Finally, using the CGAL 3D Alpha Wrapping algorithm (explained in \autoref{sec:alpha_wrapping}), 
+we will generate reference tree
 meshes for each shape at execution time. This pre-processing ensures
 that the meshes are readily available in memory, eliminating the need to wrap and
 write a \texttt{.stl} file each tree model individually during program execution.
 
 
 The following images illustrate the results of the wrapping algorithm for different
-\texttt{alpha} values (cf \autoref{sec:alpha_wrapping}) on our reference tree meshes
+\texttt{alpha} values (cf \autoref{sec:alpha_wrapping}) on our different tree models
  retrieve from \texttt{Sketchup}
 (the trunk is separated from the foliage, each image is composed of two parts: 
 the trunk and the foliage):
@@ -543,9 +549,6 @@ We used the following \texttt{alpha} values for each LOD:
 \end{table}
 
 (Reminder: LOD 0 is made with Gmsh not with the Alpha Wrapping algorithm.)
-
-All those reference tree meshes will be stored in the \texttt{data/vegetation/tree\_ref}
- directory.
 
 \subsubsection{Number of faces}
 In simulation software, the number of faces in the mesh is crucial for
