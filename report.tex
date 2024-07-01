@@ -121,36 +121,35 @@ Vincent CHABANNES\par
 
 \section{Introduction}
 
-This project is part of a group of projects conducted within the \texttt{Exa-MA Project}
-\cite{exaMA} which is a part of the \texttt{Numpex} project research\cite{numpex}. 
-Those are the different projects my colleagues and I worked on:
+This project is part of a series conducted within the \texttt{Exa-MA Project}\cite{exaMA},
+ which is a segment of the \texttt{Numpex} project research\cite{numpex}. 
+ My colleagues and I worked on the following projects:
 \begin{itemize}
-    \item \texttt{Exa-MA WP1 - Vegetation}
-    \item \texttt{Exa-MA WP1 - Terrain}
-    \item \texttt{Exa-MA WP1 - Urban Building LOD-1}
-    \item \texttt{Exa-MA WP1 - Urban Building LOD-2 and Kinetic}
-    \item \texttt{Exa-MA WP1 - Performance and Scalability}
+\item \texttt{Exa-MA WP1 - Vegetation}
+\item \texttt{Exa-MA WP1 - Terrain}
+\item \texttt{Exa-MA WP1 - Urban Building LOD-1}
+\item \texttt{Exa-MA WP1 - Urban Building LOD-2 and Kinetic}
+\item \texttt{Exa-MA WP1 - Performance and Scalability}
 \end{itemize}
 
-These projects are conducted within the \texttt{HiDALGO2}\cite{hidalgo2} initiative, which
-"aims to explore synergies between modeling, data acquisition, simulation,
-data analysis and visualization along with achieving better scalability on
-current and future HPC and AI infrastructures to deliver highly-scalable
-solutions that can effectively utilize pre-exascale systems."\cite{hidalgo2-about}
+These projects are conducted within the \texttt{HiDALGO2}\cite{hidalgo2} initiative,
+ which "aims to explore synergies between modeling, data acquisition, simulation,
+  data analysis, and visualization along with achieving better scalability on 
+  current and future HPC and AI infrastructures to deliver highly-scalable solutions
+   that can effectively utilize pre-exascale systems."\cite{hidalgo2-about}
 
-Specifically focusing on the \texttt{Urban Building Model}\cite{hidalgo2-ubm}
-Use Case (UBM) which is "developing the Urban Building pilot application to
-improve building energy efficiency and indoor air quality"\cite{hidalgo2-ubm},
-this particular project aims to integrate vegetation, particularly trees, into 3D models
-of urban environments.
+Specifically focusing on the \texttt{Urban Building Model}\cite{hidalgo2-ubm} 
+Use Case (UBM), which is "developing the Urban Building pilot application to improve
+ building energy efficiency and indoor air quality"\cite{hidalgo2-ubm}, this particular
+  project aims to integrate vegetation, particularly trees, into 3D models of urban
+   environments.
 
-The projects are conducted within \texttt{Cemosis}\cite{cemosis} (Center for
-Modeling and Simulation in Strasbourg), which is hosted by
-\texttt{IRMA}\cite{irma} (Institute for Advanced Mathematical Research) at
-\texttt{Strasbourg University}. We operated as students under the supervision of
- \texttt{Vincent Chabannes}\cite{chabannes}, research engineer at IRMA and 
- \texttt{Christophe Prud'homme}\cite{prudhomme}, professor in applied mathematics
-  at Strasbourg University.
+The projects are conducted within \texttt{Cemosis}\cite{cemosis} (Center for Modeling 
+and Simulation in Strasbourg), which is hosted by \texttt{IRMA}\cite{irma} 
+(Institute for Advanced Mathematical Research) at \texttt{Strasbourg University}.
+ We operated as students under the supervision of \texttt{Vincent Chabannes}\cite{chabannes},
+  research engineer at IRMA, and \texttt{Christophe Prud'homme}\cite{prudhomme}, 
+professor in applied mathematics at Strasbourg University.
 
 \subsection{Context}
 
@@ -173,18 +172,18 @@ reducing energy consumption, and enhancing overall livability\cite{TIR4sTREEt}.
     \end{minipage}
 \end{figure}
 
-This \texttt{Vegetation} project aims to integrate trees into 3D geometric models of urban
-environments to improve the accuracy and realism of thermal and energy
-simulations.
+This \texttt{Vegetation} project aims to integrate trees into 3D geometric 
+models of urban environments to improve the accuracy and realism of thermal 
+and energy simulations.
 
-By leveraging data from \texttt{OpenStreetMap}\cite{openstreetmap}, a
-collaborative free geographic database, we will use \texttt{CGAL}\cite{cgal},
-an open source software library of computational geometry algorithms, and
-\texttt{Gmsh}\cite{gmsh}, a 3D finite element mesh generator,
-to generate 3D tree models and integrate them into terrain meshes.
+By leveraging data from \texttt{OpenStreetMap}\cite{openstreetmap}, a 
+collaborative free geographic database, we will use \texttt{CGAL}\cite{cgal}, 
+an open-source software library of computational geometry algorithms, and 
+\texttt{Gmsh}\cite{gmsh}, a 3D finite element mesh generator, to generate 3D 
+tree models and integrate them into terrain meshes.
 
-Our primary focus will be on Strasbourg, France. More specifically, we were
-provided with an \texttt{.stl}\cite{stl} file containing a 3D model of the
+Our primary focus will be on Strasbourg, France. More specifically, we were 
+provided with an \texttt{.stl}\cite{stl} file containing a 3D model of the 
 Strasbourg city center:
 
 \begin{figure}[H]
@@ -238,13 +237,14 @@ Here's an example of a 3D model of Manhattan, NYC:
 \end{itemize}
 
 \subsection{Software and libraries}
-To source our data, we'll utilize the \texttt{Overpass API}\cite{overpass} a
-read-only API to query data from \texttt{OpenStreetMap}, alongside
- \texttt{cpr}\cite{cpr} (a wrapper around \texttt{cURL}\cite{curl}), a URL transfer library. For geometric modeling, we
-will utilize the \texttt{Gmsh}\cite{gmsh} library as well as the \textbf{master}
- \texttt{CGAL} library, available on
-GitHub\cite{cgal-master}, known for its efficiency and reliability in geometric
+To source our data, we will utilize the \texttt{Overpass API}\cite{overpass}, 
+a read-only API for querying data from \texttt{OpenStreetMap}. We will use 
+\texttt{cpr}\cite{cpr}, a modern wrapper around \texttt{cURL}\cite{curl}, for 
+URL transfers. For geometric modeling, we will employ the \texttt{Gmsh}\cite{gmsh} 
+library as well as the \texttt{CGAL} library, available on 
+GitHub\cite{cgal-master}, known for its efficiency and reliability in geometric 
 computation.
+
 
 \subsection{GitHub repository}
 We created a \href{https://github.com/feelpp/ktirio-geom}{GitHub}
@@ -280,7 +280,7 @@ specific parts of the \texttt{OpenStreetMap} data. In this case, the query
 fetches all nodes within the given bounding box tagged as \texttt{natural=tree}.
 
 If the query is not successful, a \texttt{cpr.log} file will be generated to
-store the error message. Otherwise, the data will be stored in a \texttt{.json}.
+store the error message. Otherwise, the data will be stored in a \texttt{.json} file.
 
 A \textit{config.json} file is available for the user to specify the area of
 interest and other parameters:
@@ -342,7 +342,7 @@ Here is an example of the query result for one tree:
 }
 \end{lstlisting}
 
-Sometimes, multiple \texttt{tags} are missing, as shown here:
+Sometimes, multiple \texttt{tags} can be missing, as shown here:
 
 \begin{lstlisting}[language=json]
 {
@@ -356,12 +356,12 @@ Sometimes, multiple \texttt{tags} are missing, as shown here:
 }
 \end{lstlisting}
 
-We will primarily use the \texttt{position} of the tree (latitude and
+We will primarily use the \texttt{GPS position} of the tree (latitude and
 longitude), its \texttt{height}, \texttt{circumference} and \texttt{diameter\_crown}.
 
 \subsection{Tree library}
-We will assume that the trees belongs to a specific shape category (cone, oval, 
-round). This could be improved by adding more shape as shown in the next image:
+We will assume that the trees belongs to a specific shape category, in our case cone, oval or 
+round. This could be improved by adding more shape as shown in the next image:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/Different-types-of-the-trees-shape.png}
@@ -377,8 +377,12 @@ be useful for scaling and when considering different leaf densities.
 
 \subsubsection{LOD 0}
 For the lowest level of detail, we will use simple models manually made with 
-\texttt{Gmsh}\cite{gmsh} and store them in \texttt{data/vegetation/tree\_ref} 
-(the \texttt{Gmsh} source code is available in \texttt{data/vegetation/tree\_ref/tree\_ref\_geo}). 
+\texttt{Gmsh}\cite{gmsh} and store them in \texttt{data/vegetation/tree\_ref} in \texttt{.stl} format.\\
+The \texttt{.stl}\cite{stl} (stereolithography) format is widely used for 3D printing
+and computer-aided design (CAD). It represents the surface geometry of a 3D
+object without any color, texture, or other attributes. The file comprises a
+collection of triangular facets, each defined by its vertices and normal vector.\\
+
 In the following images, we can see the trunk and foliage of the tree, with the 
 trunk separated from the foliage:
 
@@ -416,7 +420,7 @@ trunk separated from the foliage:
 
 \subsubsection{LOD 1, 2, 3}
 As for the other LODs, we will retrieve reference trees meshes from the
-\texttt{Sketch up 3D Warehouse}\cite{sketchup} as shown in the next image:
+\texttt{Sketchup 3D Warehouse}\cite{sketchup} as shown in the next image:
 \begin{figure}[H]
     \centering
         \centering
@@ -425,7 +429,7 @@ As for the other LODs, we will retrieve reference trees meshes from the
         \caption{Mesh of a Ginkgo tree on Sketchup 3D Warehouse}
 \end{figure}
 
-We will then preprocess these models using \texttt{Meshlab}\cite{meshlab}, removing 
+We will then pre-process these models using \texttt{Meshlab}\cite{meshlab}, removing 
 the trunk and branches as much as possible. Additionally, we will normalize them
  to fit within a unit bounding box and translate them to the origin. These cleaned
   models will be stored in the \texttt{data/vegetation/tree\_ref/tree\_ref\_sketchup} directory.
@@ -462,9 +466,8 @@ write a \texttt{.stl} file each tree model individually during program execution
 
 The following images illustrate the results of the wrapping algorithm for different
 \texttt{alpha} values (cf \autoref{sec:alpha_wrapping}) on our different tree models
- retrieve from \texttt{Sketchup}
-(the trunk is separated from the foliage, each image is composed of two parts: 
-the trunk and the foliage):
+ retrieve from \texttt{Sketchup}. The trunk is separated from the foliage, each image is composed of two parts: 
+the trunk and the foliage:
 
 
 \begin{figure}[H]
@@ -579,10 +582,10 @@ tree models. This will allow us to adjust the foliage's appearance and
 complexity based on the time of year.\\
 
 To achieve this we will iterate through the tree's faces of the foliage meshes 
-and randomly label the faces with a \texttt{A, B, C, D} tag, each having a 
+and randomly label the faces with a \texttt{0, 1, 2, 3} tag, each having a 
 $25\%$ chance of being selected. This will allow us to represent the different
-leaf densities; if all \texttt{A, B, C, D} tags are used, the tree will have
-a full foliage, if only the tag \texttt{A} is used, the tree will have a low
+leaf densities; if all \texttt{0, 1, 2, 3} tags are used, the tree will have
+a full foliage, if only the tag \texttt{0} is used, the tree will have a low
 foliage density, etc.\\
 
 The following images depict the different leaf densities for the tree models:
@@ -613,26 +616,14 @@ shape than an old tree of the same species, and we don't have access to this inf
  tree shapes and improve the realism of the urban environment simulation.
 \subsection{Building mesh}
 
-To test the integration of trees and buildings we will be working with is a 3D 
+To test the integration of trees and buildings we will be working locally with is a 3D 
 model of the Strasbourg city
-center, provided in the \texttt{.stl} file format stored in the \texttt{data/terrain}
-directory. This file contains the
+center, provided in the \texttt{.stl} file format. This file contains the
 geometric information of the terrain and buildings in the specified area,
 which serves as the base for our project.
 
-The \texttt{.stl}\cite{stl} (stereolithography) format is widely used for 3D printing
-and computer-aided design (CAD). It represents the surface geometry of a 3D
-object without any color, texture, or other attributes. The file comprises a
-collection of triangular facets, each defined by its vertices and normal vector.
-
-Here are some key details about the \texttt{.stl} file we are working with:
-\begin{itemize}
-    \item \textbf{File Name:} mesh\_lod1.stl
-    \item \textbf{Region Covered:} Strasbourg city center
-    \item \textbf{File Size:} 42,7 MB
-    \item \textbf{Number of Vertices:} Approximately 120,959
-    \item \textbf{Number of Facets:} Approximately 273,178
-\end{itemize}
+Later on, we will directly use the mesh generated by the \texttt{Urban Terrain}, 
+\texttt{Urban Building LOD-1} and \texttt{Urban Building LOD-2 and Kinetic} projects.
 
 The 3D model includes various urban features such as buildings, streets, and
 other infrastructure. This detailed representation is crucial for accurately
@@ -747,7 +738,7 @@ following tree attributes retrieve from the \texttt{OpenStreetMap} data:
 We will start by assuming those attributes exist and are correct.\\
 Before scaling the tree we will add a random rotation to it to make the
 simulation more realistic.\\
-Then the next step will be to scale the tree to match the real world. To do this we
+Then the next step will be to scale the tree to match its real height. To do this we
 will scale the foliage and the trunk separately. The foliage will be scaled
 using the \texttt{diameter\_crown} attribute and the trunk will be scaled using
 the \texttt{circumference} attribute.\\
@@ -787,20 +778,16 @@ in the next images:
     \end{minipage}
 \end{figure}
 
-The \texttt{scaling factor} for the foliage will be calculated as follows:
+The \texttt{scaling factor} for the foliage (or trunk) will be calculated as follows:
 \begin{equation}
-    \text{scaling factor} = \frac{\text{diam\_foliage}}{\text{bbox.ymax()-bbox.ymin()}} + \text{noise}
+    \text{scaling factor} = \frac{\text{diam\_foliage (or trunk)}}{\text{bbox.ymax()-bbox.ymin()}} + \text{noise}
 \end{equation}
 
-For the trunk it will be:
-\begin{equation}
-    \text{scaling factor} = \frac{\text{diam\_trunk}}{\text{bbox.ymax()-bbox.ymin()}} + \text{noise}  
-\end{equation}
 
 Where,
 \begin{itemize}
-    \item $\text{diam\_trunk} = \text{circumference} / \pi$
-    \item $\text{bbox.ymax()-bbox.ymin()}$
+    \item $\text{diam\_trunk} = \text{circumference} / \pi$ is the diameter of the trunk.
+    \item $\text{bbox.ymax()-bbox.ymin()}$ is the width of the bounding.
     \item \texttt{noise} is a random value in the range 
     $[-\text{scaling factor} / 100, \text{scaling factor} / 100]$.
 \end{itemize}
@@ -814,9 +801,9 @@ picked in a range defined by the user in the \textit{config.json} file.
 \subsection{Tree placement}
 
 Generated tree models will be integrated into terrain meshes to create comprehensive
-3D urban models. To ensure precise integration into the terrain mesh (especially for large area), the tree models coordinates
-(latitude, longitude) will be converted to Cartesian coordinates (x, y) using
-a Mercator projection\cite{mercator-proj}.
+3D urban models. To ensure precise integration into the terrain mesh (especially for large area),
+ the tree models \texttt{GPS coordinates} (latitude, longitude) will be converted
+  to \texttt{Cartesian coordinates} (x, y) using a \texttt{Mercator projection}\cite{mercator-proj}.
 
 \begin{figure}[H]
     \centering
@@ -826,7 +813,7 @@ a Mercator projection\cite{mercator-proj}.
 \end{figure}
 
 This is the most common way to represent the Earth's surface on a plane and has
-the advantage of being conformal, meaning that it preserves angles locally (hence
+the advantage of being \texttt{conformal}, meaning that it preserves angles locally (hence
  its usage in sailings). \\
  In a Mercator projection, parallels and meridians are represented by straight
  orthogonal lines, with the equator being the horizontal line placed at the center
@@ -868,7 +855,7 @@ either the trunk floating in the air below the foliage or poking through it.
 Then the union of all the tree meshed will need to be computed to create a single mesh
 and avoid collision between the trees. \\
 This will be achieved by considering all our meshes (trees, buildings, terrain) as
-soup of triangle and  use the \texttt{autorefine\_triangle\_soup}\cite{auto-refine-triangle-soup}
+soup of triangles and  use the \texttt{autorefine\_triangle\_soup}\cite{auto-refine-triangle-soup}
 function available in the master branch of the CGAL library. \\
 Another approach could be to use the convex hull of the tree meshes, using the
 intersection of the convex hulls to compute the union of the tree meshes.
